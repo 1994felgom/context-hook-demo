@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import Button from 'component/Button'
+import Count from 'store/count'
+
+const App = () => {
+  const { state, increment, decrement } = Count.useStore()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <h1>{state.count}</h1>
+
+      <Button onClick={increment}>+</Button>
+      <Button onClick={decrement}>-</Button>
+    </>
+  )
 }
 
-export default App;
+export default App
